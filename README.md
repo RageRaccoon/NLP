@@ -8,13 +8,16 @@ This repository contains all programs and projects developed for the **Natural L
 Class/
 ├── Diagnostic_Exam/
 │   └── word.ipynb
-└── Tokenizador/
-    └── tokenizador.ipynb
+├── Tokenizador/
+│   └── tokenizador.ipynb
+├── repeatedwords_deleter.ipynb
+├── stopwords_deleter.ipynb
+└── two_lower.ipynb
 
-Tokenizer/
+Partial_1/
+├── Practices.ipynb
 ├── tokenizer
-├── tokenizer.cpp
-└── tokenizer.ipynb
+└── tokenizer.cpp
 ```
 
 ## Contents
@@ -22,13 +25,18 @@ Tokenizer/
 ### Class/
 Contains class exercises and assignments:
 - **Diagnostic_Exam/**: Diagnostic examination materials
+  - `word.ipynb`: Word processing diagnostic exercise
 - **Tokenizador/**: Tokenizer implementation exercises
+  - `tokenizador.ipynb`: Tokenizer implementation in Python
+- **repeatedwords_deleter.ipynb**: Exercise for removing repeated words
+- **stopwords_deleter.ipynb**: Exercise for removing stop words
+- **two_lower.ipynb**: Exercise for text lowercase conversion
 
-### Tokenizer/
-Contains tokenizer implementations in different formats:
+### Partial_1/
+Contains first partial examination materials and projects:
+- **Practices.ipynb**: Practice exercises and implementations
 - **tokenizer**: Executable tokenizer program
 - **tokenizer.cpp**: C++ implementation of the tokenizer
-- **tokenizer.ipynb**: Jupyter notebook with Python tokenizer implementation
 
 ## About
 

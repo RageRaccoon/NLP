@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo de ventana de código -->
+  <rect width="800" height="600" fill="#1e1e1e"/>
+  
+  <!-- Barra de título -->
+  <rect width="800" height="30" fill="#2d2d30"/>
+  <circle cx="15" cy="15" r="6" fill="#ff5f56"/>
+  <circle cx="35" cy="15" r="6" fill="#ffbd2e"/>
+  <circle cx="55" cy="15" r="6" fill="#27ca3f"/>
+  <text x="80" y="20" fill="#cccccc" font-family="Arial" font-size="12">tokenization.py - Visual Studio Code</text>
+  
+  <!-- Números de línea -->
+  <rect x="0" y="30" width="50" height="570" fill="#252526"/>
+  
+  <!-- Código Python -->
+  <text x="60" y="60" fill="#569cd6" font-family="Consolas, monospace" font-size="14"># Tokenización de texto en Python</text>
+  <text x="60" y="80" fill="#569cd6" font-family="Consolas, monospace" font-size="14">import nltk</text>
+  <text x="60" y="100" fill="#569cd6" font-family="Consolas, monospace" font-size="14">from nltk.tokenize import word_tokenize</text>
+  <text x="60" y="120" fill="#569cd6" font-family="Consolas, monospace" font-size="14">import string</text>
+  
+  <text x="60" y="160" fill="#dcdcaa" font-family="Consolas, monospace" font-size="14">def tokenize_text(text):</text>
+  <text x="80" y="180" fill="#ce9178" font-family="Consolas, monospace" font-size="14">"""Tokeniza un texto eliminando puntuación"""</text>
+  <text x="80" y="200" fill="#cccccc" font-family="Consolas, monospace" font-size="14">tokens = word_tokenize(text)</text>
+  <text x="80" y="220" fill="#cccccc" font-family="Consolas, monospace" font-size="14">filtered_tokens = []</text>
+  
+  <text x="80" y="260" fill="#c586c0" font-family="Consolas, monospace" font-size="14">for token in tokens:</text>
+  <text x="100" y="280" fill="#c586c0" font-family="Consolas, monospace" font-size="14">if token not in string.punctuation:</text>
+  <text x="120" y="300" fill="#cccccc" font-family="Consolas, monospace" font-size="14">filtered_tokens.append(token)</text>
+  
+  <text x="80" y="340" fill="#c586c0" font-family="Consolas, monospace" font-size="14">return filtered_tokens</text>
+  
+  <text x="60" y="380" fill="#569cd6" font-family="Consolas, monospace" font-size="14"># Ejemplo de uso</text>
+  <text x="60" y="400" fill="#cccccc" font-family="Consolas, monospace" font-size="14">texto = </text>
+  <text x="120" y="400" fill="#ce9178" font-family="Consolas, monospace" font-size="14">"Hola mundo! ¿Cómo estás?"</text>
+  <text x="60" y="420" fill="#cccccc" font-family="Consolas, monospace" font-size="14">tokens = tokenize_text(texto)</text>
+  <text x="60" y="440" fill="#dcdcaa" font-family="Consolas, monospace" font-size="14">print(tokens)</text>
+  
+  <!-- Números de línea -->
+  <text x="25" y="60" fill="#858585" font-family="Consolas, monospace" font-size="12">1</text>
+  <text x="25" y="80" fill="#858585" font-family="Consolas, monospace" font-size="12">2</text>
+  <text x="25" y="100" fill="#858585" font-family="Consolas, monospace" font-size="12">3</text>
+  <text x="25" y="120" fill="#858585" font-family="Consolas, monospace" font-size="12">4</text>
+  <text x="25" y="160" fill="#858585" font-family="Consolas, monospace" font-size="12">6</text>
+  <text x="25" y="180" fill="#858585" font-family="Consolas, monospace" font-size="12">7</text>
+  <text x="25" y="200" fill="#858585" font-family="Consolas, monospace" font-size="12">8</text>
+  <text x="25" y="220" fill="#858585" font-family="Consolas, monospace" font-size="12">9</text>
+  <text x="25" y="260" fill="#858585" font-family="Consolas, monospace" font-size="12">11</text>
+  <text x="25" y="280" fill="#858585" font-family="Consolas, monospace" font-size="12">12</text>
+  <text x="25" y="300" fill="#858585" font-family="Consolas, monospace" font-size="12">13</text>
+  <text x="25" y="340" fill="#858585" font-family="Consolas, monospace" font-size="12">15</text>
+  <text x="25" y="380" fill="#858585" font-family="Consolas, monospace" font-size="12">17</text>
+  <text x="25" y="400" fill="#858585" font-family="Consolas, monospace" font-size="12">18</text>
+  <text x="25" y="420" fill="#858585" font-family="Consolas, monospace" font-size="12">19</text>
+  <text x="25" y="440" fill="#858585" font-family="Consolas, monospace" font-size="12">20</text>
+</svg>

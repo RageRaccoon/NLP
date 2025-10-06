@@ -1,0 +1,32 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción General}{2}{section.1}%
+\contentsline {section}{\numberline {2}Práctica 1: Tokenización}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Introducción}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Diagrama de Flujo}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Código Fuente}{3}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Implementación en Python}{3}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Implementación en C++}{4}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.4}Capturas del Funcionamiento}{6}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Práctica 2: Preprocesamiento de Texto}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Introducción}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Diagrama de Flujo}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Código Fuente}{7}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Capturas del Funcionamiento}{8}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Práctica 3: Matriz TF-IDF}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Introducción}{10}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Diagrama de Flujo}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Código Fuente}{10}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Documentos de Prueba}{11}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Capturas del Funcionamiento}{12}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Análisis de Resultados}{13}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Comparación de Rendimiento}{13}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Efectividad del Preprocesamiento}{13}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Calidad de la Matriz TF-IDF}{13}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Conclusiones}{14}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Logros Obtenidos}{14}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Lecciones Aprendidas}{14}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Trabajo Futuro}{14}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Comandos de Compilación y Ejecución}{15}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Para C++}{15}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Para Python}{15}{subsection.7.2}%
+\contentsline {section}{\numberline {8}Bibliografía}{16}{section.8}%

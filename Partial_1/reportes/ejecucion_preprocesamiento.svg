@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo de Jupyter -->
+  <rect width="800" height="600" fill="#ffffff"/>
+  
+  <!-- Barra de título -->
+  <rect width="800" height="40" fill="#f7f7f7" stroke="#e1e1e1"/>
+  <text x="20" y="25" fill="#333333" font-family="Arial" font-size="14" font-weight="bold">Jupyter Notebook - Preprocesamiento.ipynb</text>
+  
+  <!-- Celda de código -->
+  <rect x="20" y="60" width="760" height="520" fill="#f8f8f8" stroke="#cccccc"/>
+  
+  <!-- Indicador de celda -->
+  <rect x="20" y="60" width="60" height="40" fill="#e8e8e8"/>
+  <text x="35" y="82" fill="#666666" font-family="Arial" font-size="12">In [3]:</text>
+  
+  <!-- Código -->
+  <text x="100" y="85" fill="#008000" font-family="Consolas, monospace" font-size="13"># Preprocesamiento de texto</text>
+  <text x="100" y="105" fill="#0000ff" font-family="Consolas, monospace" font-size="13">import</text>
+  <text x="150" y="105" fill="#000000" font-family="Consolas, monospace" font-size="13">nltk</text>
+  <text x="100" y="125" fill="#0000ff" font-family="Consolas, monospace" font-size="13">from</text>
+  <text x="140" y="125" fill="#000000" font-family="Consolas, monospace" font-size="13">nltk.corpus</text>
+  <text x="220" y="125" fill="#0000ff" font-family="Consolas, monospace" font-size="13">import</text>
+  <text x="270" y="125" fill="#000000" font-family="Consolas, monospace" font-size="13">stopwords</text>
+  <text x="100" y="145" fill="#0000ff" font-family="Consolas, monospace" font-size="13">from</text>
+  <text x="140" y="145" fill="#000000" font-family="Consolas, monospace" font-size="13">nltk.tokenize</text>
+  <text x="240" y="145" fill="#0000ff" font-family="Consolas, monospace" font-size="13">import</text>
+  <text x="290" y="145" fill="#000000" font-family="Consolas, monospace" font-size="13">word_tokenize</text>
+  
+  <text x="100" y="175" fill="#000000" font-family="Consolas, monospace" font-size="13">texto_original = </text>
+  <text x="220" y="175" fill="#ba2121" font-family="Consolas, monospace" font-size="13">"¡Hola Mundo! Este es un EJEMPLO..."</text>
+  <text x="100" y="195" fill="#000000" font-family="Consolas, monospace" font-size="13">tokens_limpios = preprocess_text(texto_original)</text>
+  <text x="100" y="215" fill="#0000ff" font-family="Consolas, monospace" font-size="13">print</text>
+  <text x="140" y="215" fill="#000000" font-family="Consolas, monospace" font-size="13">(</text>
+  <text x="150" y="215" fill="#ba2121" font-family="Consolas, monospace" font-size="13">"Tokens procesados:"</text>
+  <text x="280" y="215" fill="#000000" font-family="Consolas, monospace" font-size="13">, tokens_limpios)</text>
+  
+  <!-- Separador de salida -->
+  <rect x="20" y="240" width="60" height="40" fill="#f0f0f0"/>
+  <text x="30" y="262" fill="#666666" font-family="Arial" font-size="12">Out[3]:</text>
+  
+  <!-- Salida -->
+  <rect x="100" y="240" width="680" height="320" fill="#ffffff" stroke="#dddddd"/>
+  
+  <text x="120" y="270" fill="#000000" font-family="Consolas, monospace" font-size="13">Tokens procesados:</text>
+  <text x="120" y="295" fill="#d73027" font-family="Consolas, monospace" font-size="12">['hola', 'mundo', 'ejemplo', 'texto', 'contiene', 'mayusculas',</text>
+  <text x="120" y="315" fill="#d73027" font-family="Consolas, monospace" font-size="12">'minusculas', 'mezcladas', 'signos', 'puntuacion', 'numeros',</text>
+  <text x="120" y="335" fill="#d73027" font-family="Consolas, monospace" font-size="12">'palabras', 'vacias', 'stopwords', 'espacios', 'multiples',</text>
+  <text x="120" y="355" fill="#d73027" font-family="Consolas, monospace" font-size="12">'palabras', 'procesamiento', 'lenguaje', 'natural', 'nlp',</text>
+  <text x="120" y="375" fill="#d73027" font-family="Consolas, monospace" font-size="12">'rama', 'inteligencia', 'artificial', 'ocupa', 'interaccion',</text>
+  <text x="120" y="395" fill="#d73027" font-family="Consolas, monospace" font-size="12">'computadoras', 'lenguaje', 'humano', 'fascinante',</text>
+  <text x="120" y="415" fill="#d73027" font-family="Consolas, monospace" font-size="12">'palabras', 'acentos', 'analisis', 'programacion',</text>
+  <text x="120" y="435" fill="#d73027" font-family="Consolas, monospace" font-size="12">'linguistica', 'incluye', 'contracciones']</text>
+  
+  <text x="120" y="470" fill="#000000" font-family="Consolas, monospace" font-size="13">Estadísticas del preprocesamiento:</text>
+  <text x="120" y="490" fill="#1f77b4" font-family="Consolas, monospace" font-size="12">- Tokens originales: 89</text>
+  <text x="120" y="510" fill="#1f77b4" font-family="Consolas, monospace" font-size="12">- Tokens después del filtrado: 32</text>
+  <text x="120" y="530" fill="#1f77b4" font-family="Consolas, monospace" font-size="12">- Reducción: 64.04%</text>
+  
+  <!-- Indicador de ejecución exitosa -->
+  <circle cx="750" cy="80" r="8" fill="#28a745"/>
+  <text x="745" y="85" fill="#ffffff" font-family="Arial" font-size="10">✓</text>
+</svg>

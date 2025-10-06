@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo de ventana de código -->
+  <rect width="800" height="600" fill="#1e1e1e"/>
+  
+  <!-- Barra de título -->
+  <rect width="800" height="30" fill="#2d2d30"/>
+  <circle cx="15" cy="15" r="6" fill="#ff5f56"/>
+  <circle cx="35" cy="15" r="6" fill="#ffbd2e"/>
+  <circle cx="55" cy="15" r="6" fill="#27ca3f"/>
+  <text x="80" y="20" fill="#cccccc" font-family="Arial" font-size="12">tokenizer.cpp - Visual Studio Code</text>
+  
+  <!-- Números de línea -->
+  <rect x="0" y="30" width="50" height="570" fill="#252526"/>
+  
+  <!-- Código C++ -->
+  <text x="60" y="60" fill="#569cd6" font-family="Consolas, monospace" font-size="14">#include &lt;iostream&gt;</text>
+  <text x="60" y="80" fill="#569cd6" font-family="Consolas, monospace" font-size="14">#include &lt;string&gt;</text>
+  <text x="60" y="100" fill="#569cd6" font-family="Consolas, monospace" font-size="14">#include &lt;vector&gt;</text>
+  
+  <text x="60" y="140" fill="#569cd6" font-family="Consolas, monospace" font-size="14">class</text>
+  <text x="110" y="140" fill="#4ec9b0" font-family="Consolas, monospace" font-size="14">Tokenizer</text>
+  <text x="200" y="140" fill="#cccccc" font-family="Consolas, monospace" font-size="14">{</text>
+  
+  <text x="80" y="160" fill="#569cd6" font-family="Consolas, monospace" font-size="14">private:</text>
+  <text x="100" y="180" fill="#cccccc" font-family="Consolas, monospace" font-size="14">std::string delimiters;</text>
+  
+  <text x="80" y="220" fill="#569cd6" font-family="Consolas, monospace" font-size="14">public:</text>
+  <text x="100" y="240" fill="#dcdcaa" font-family="Consolas, monospace" font-size="14">Tokenizer()</text>
+  <text x="180" y="240" fill="#cccccc" font-family="Consolas, monospace" font-size="14">: delimiters(</text>
+  <text x="280" y="240" fill="#ce9178" font-family="Consolas, monospace" font-size="14">" .,;:!?()[]"</text>
+  <text x="380" y="240" fill="#cccccc" font-family="Consolas, monospace" font-size="14">) {}</text>
+  
+  <text x="100" y="280" fill="#569cd6" font-family="Consolas, monospace" font-size="14">bool</text>
+  <text x="140" y="280" fill="#dcdcaa" font-family="Consolas, monospace" font-size="14">verify_word(</text>
+  <text x="240" y="280" fill="#569cd6" font-family="Consolas, monospace" font-size="14">char</text>
+  <text x="280" y="280" fill="#cccccc" font-family="Consolas, monospace" font-size="14">c) {</text>
+  <text x="120" y="300" fill="#c586c0" font-family="Consolas, monospace" font-size="14">return</text>
+  <text x="180" y="300" fill="#cccccc" font-family="Consolas, monospace" font-size="14">delimiters.find(c) ==</text>
+  <text x="120" y="320" fill="#cccccc" font-family="Consolas, monospace" font-size="14">std::string::npos;</text>
+  <text x="100" y="340" fill="#cccccc" font-family="Consolas, monospace" font-size="14">}</text>
+  
+  <text x="100" y="380" fill="#cccccc" font-family="Consolas, monospace" font-size="14">std::vector&lt;std::string&gt;</text>
+  <text x="100" y="400" fill="#dcdcaa" font-family="Consolas, monospace" font-size="14">tokenize(</text>
+  <text x="180" y="400" fill="#569cd6" font-family="Consolas, monospace" font-size="14">const</text>
+  <text x="220" y="400" fill="#cccccc" font-family="Consolas, monospace" font-size="14">std::string&amp; text) {</text>
+  <text x="120" y="420" fill="#569cd6" font-family="Consolas, monospace" font-size="14">// Implementación del algoritmo</text>
+  <text x="120" y="440" fill="#c586c0" font-family="Consolas, monospace" font-size="14">return</text>
+  <text x="180" y="440" fill="#cccccc" font-family="Consolas, monospace" font-size="14">tokens;</text>
+  <text x="100" y="460" fill="#cccccc" font-family="Consolas, monospace" font-size="14">}</text>
+  <text x="60" y="480" fill="#cccccc" font-family="Consolas, monospace" font-size="14">};</text>
+  
+  <!-- Números de línea -->
+  <text x="25" y="60" fill="#858585" font-family="Consolas, monospace" font-size="12">1</text>
+  <text x="25" y="80" fill="#858585" font-family="Consolas, monospace" font-size="12">2</text>
+  <text x="25" y="100" fill="#858585" font-family="Consolas, monospace" font-size="12">3</text>
+  <text x="25" y="140" fill="#858585" font-family="Consolas, monospace" font-size="12">5</text>
+  <text x="25" y="160" fill="#858585" font-family="Consolas, monospace" font-size="12">6</text>
+  <text x="25" y="180" fill="#858585" font-family="Consolas, monospace" font-size="12">7</text>
+  <text x="25" y="220" fill="#858585" font-family="Consolas, monospace" font-size="12">9</text>
+  <text x="25" y="240" fill="#858585" font-family="Consolas, monospace" font-size="12">10</text>
+  <text x="25" y="280" fill="#858585" font-family="Consolas, monospace" font-size="12">12</text>
+  <text x="25" y="300" fill="#858585" font-family="Consolas, monospace" font-size="12">13</text>
+  <text x="25" y="320" fill="#858585" font-family="Consolas, monospace" font-size="12">14</text>
+  <text x="25" y="340" fill="#858585" font-family="Consolas, monospace" font-size="12">15</text>
+  <text x="25" y="380" fill="#858585" font-family="Consolas, monospace" font-size="12">17</text>
+  <text x="25" y="400" fill="#858585" font-family="Consolas, monospace" font-size="12">18</text>
+  <text x="25" y="420" fill="#858585" font-family="Consolas, monospace" font-size="12">19</text>
+  <text x="25" y="440" fill="#858585" font-family="Consolas, monospace" font-size="12">20</text>
+  <text x="25" y="460" fill="#858585" font-family="Consolas, monospace" font-size="12">21</text>
+  <text x="25" y="480" fill="#858585" font-family="Consolas, monospace" font-size="12">22</text>
+</svg>

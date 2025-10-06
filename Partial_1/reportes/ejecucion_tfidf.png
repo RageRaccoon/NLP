@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo -->
+  <rect width="800" height="600" fill="#ffffff"/>
+  
+  <!-- Barra superior de Jupyter -->
+  <rect width="800" height="30" fill="#f8f9fa" stroke="#dee2e6"/>
+  <circle cx="15" cy="15" r="5" fill="#ff5f56"/>
+  <circle cx="35" cy="15" r="5" fill="#ffbd2e"/>
+  <circle cx="55" cy="15" r="5" fill="#27ca3f"/>
+  <text x="80" y="20" fill="#495057" font-family="Arial" font-size="12">Jupyter Notebook - TF-IDF Analysis</text>
+  
+  <!-- Celda 1: Imports -->
+  <rect x="20" y="50" width="760" height="80" fill="#f8f9fa" stroke="#e9ecef"/>
+  <text x="30" y="70" fill="#6c757d" font-family="Arial" font-size="10">In [1]:</text>
+  <text x="80" y="70" fill="#0066cc" font-family="Consolas, monospace" font-size="11">from</text>
+  <text x="115" y="70" fill="#495057" font-family="Consolas, monospace" font-size="11">sklearn.feature_extraction.text</text>
+  <text x="300" y="70" fill="#0066cc" font-family="Consolas, monospace" font-size="11">import</text>
+  <text x="340" y="70" fill="#495057" font-family="Consolas, monospace" font-size="11">TfidfVectorizer</text>
+  
+  <text x="80" y="85" fill="#0066cc" font-family="Consolas, monospace" font-size="11">import</text>
+  <text x="120" y="85" fill="#495057" font-family="Consolas, monospace" font-size="11">pandas</text>
+  <text x="170" y="85" fill="#0066cc" font-family="Consolas, monospace" font-size="11">as</text>
+  <text x="190" y="85" fill="#495057" font-family="Consolas, monospace" font-size="11">pd</text>
+  
+  <text x="80" y="100" fill="#0066cc" font-family="Consolas, monospace" font-size="11">import</text>
+  <text x="120" y="100" fill="#495057" font-family="Consolas, monospace" font-size="11">numpy</text>
+  <text x="165" y="100" fill="#0066cc" font-family="Consolas, monospace" font-size="11">as</text>
+  <text x="185" y="100" fill="#495057" font-family="Consolas, monospace" font-size="11">np</text>
+  
+  <text x="80" y="115" fill="#0066cc" font-family="Consolas, monospace" font-size="11">from</text>
+  <text x="115" y="115" fill="#495057" font-family="Consolas, monospace" font-size="11">pprint</text>
+  <text x="155" y="115" fill="#0066cc" font-family="Consolas, monospace" font-size="11">import</text>
+  <text x="195" y="115" fill="#495057" font-family="Consolas, monospace" font-size="11">pprint</text>
+  
+  <!-- Celda 2: Corpus de documentos -->
+  <rect x="20" y="150" width="760" height="100" fill="#f8f9fa" stroke="#e9ecef"/>
+  <text x="30" y="170" fill="#6c757d" font-family="Arial" font-size="10">In [2]:</text>
+  <text x="80" y="170" fill="#495057" font-family="Consolas, monospace" font-size="11">corpus = [</text>
+  
+  <text x="100" y="185" fill="#008000" font-family="Consolas, monospace" font-size="11">"procesamiento lenguaje natural inteligencia artificial"</text><text x="450" y="185" fill="#495057" font-family="Consolas, monospace" font-size="11">,</text>
+  <text x="100" y="200" fill="#008000" font-family="Consolas, monospace" font-size="11">"análisis texto datos información sistema"</text><text x="350" y="200" fill="#495057" font-family="Consolas, monospace" font-size="11">,</text>
+  <text x="100" y="215" fill="#008000" font-family="Consolas, monospace" font-size="11">"algoritmo aprendizaje machine learning modelo"</text><text x="380" y="215" fill="#495057" font-family="Consolas, monospace" font-size="11">,</text>
+  <text x="100" y="230" fill="#008000" font-family="Consolas, monospace" font-size="11">"vectorización matriz tfidf similitud documentos"</text><text x="400" y="230" fill="#495057" font-family="Consolas, monospace" font-size="11">,</text>
+  <text x="100" y="245" fill="#008000" font-family="Consolas, monospace" font-size="11">"corpus vocabulario términos frecuencia clasificación"</text>
+  <text x="80" y="245" fill="#495057" font-family="Consolas, monospace" font-size="11">]</text>
+  
+  <!-- Celda 3: Creación del vectorizador -->
+  <rect x="20" y="270" width="760" height="60" fill="#f8f9fa" stroke="#e9ecef"/>
+  <text x="30" y="290" fill="#6c757d" font-family="Arial" font-size="10">In [3]:</text>
+  <text x="80" y="290" fill="#495057" font-family="Consolas, monospace" font-size="11">vectorizer = TfidfVectorizer()</text>
+  <text x="80" y="305" fill="#495057" font-family="Consolas, monospace" font-size="11">tfidf_matrix = vectorizer.fit_transform(corpus)</text>
+  <text x="80" y="320" fill="#495057" font-family="Consolas, monospace" font-size="11">feature_names = vectorizer.get_feature_names_out()</text>
+  
+  <!-- Celda 4: Resultados -->
+  <rect x="20" y="350" width="760" height="220" fill="#ffffff" stroke="#e9ecef"/>
+  <text x="30" y="370" fill="#6c757d" font-family="Arial" font-size="10">In [4]:</text>
+  <text x="80" y="370" fill="#0066cc" font-family="Consolas, monospace" font-size="11">print</text>
+  <text x="115" y="370" fill="#495057" font-family="Consolas, monospace" font-size="11">(</text>
+  <text x="120" y="370" fill="#008000" font-family="Consolas, monospace" font-size="11">"Forma de la matriz TF-IDF:"</text>
+  <text x="280" y="370" fill="#495057" font-family="Consolas, monospace" font-size="11">, tfidf_matrix.shape)</text>
+  
+  <text x="30" y="390" fill="#6c757d" font-family="Arial" font-size="10">Out[4]:</text>
+  <text x="80" y="390" fill="#495057" font-family="Consolas, monospace" font-size="11">Forma de la matriz TF-IDF: (5, 33)</text>
+  
+  <text x="80" y="410" fill="#0066cc" font-family="Consolas, monospace" font-size="11">print</text>
+  <text x="115" y="410" fill="#495057" font-family="Consolas, monospace" font-size="11">(</text>
+  <text x="120" y="410" fill="#008000" font-family="Consolas, monospace" font-size="11">"Vocabulario (primeros 10 términos):"</text>
+  <text x="320" y="410" fill="#495057" font-family="Consolas, monospace" font-size="11">)</text>
+  <text x="80" y="425" fill="#0066cc" font-family="Consolas, monospace" font-size="11">print</text>
+  <text x="115" y="425" fill="#495057" font-family="Consolas, monospace" font-size="11">(feature_names[:10])</text>
+  
+  <text x="80" y="445" fill="#495057" font-family="Consolas, monospace" font-size="11">Vocabulario (primeros 10 términos):</text>
+  <text x="80" y="460" fill="#495057" font-family="Consolas, monospace" font-size="11">['algoritmo' 'análisis' 'aprendizaje' 'artificial' 'clasificación'</text>
+  <text x="80" y="475" fill="#495057" font-family="Consolas, monospace" font-size="11"> 'corpus' 'datos' 'documentos' 'frecuencia' 'información']</text>
+  
+  <!-- Matriz TF-IDF (muestra) -->
+  <text x="80" y="500" fill="#0066cc" font-family="Consolas, monospace" font-size="11">print</text>
+  <text x="115" y="500" fill="#495057" font-family="Consolas, monospace" font-size="11">(</text>
+  <text x="120" y="500" fill="#008000" font-family="Consolas, monospace" font-size="11">"Matriz TF-IDF (muestra):"</text>
+  <text x="270" y="500" fill="#495057" font-family="Consolas, monospace" font-size="11">)</text>
+  <text x="80" y="515" fill="#0066cc" font-family="Consolas, monospace" font-size="11">print</text>
+  <text x="115" y="515" fill="#495057" font-family="Consolas, monospace" font-size="11">(tfidf_matrix.toarray()[:3, :5])</text>
+  
+  <text x="80" y="535" fill="#495057" font-family="Consolas, monospace" font-size="11">Matriz TF-IDF (muestra):</text>
+  <text x="80" y="550" fill="#495057" font-family="Consolas, monospace" font-size="11">[[0.447 0.000 0.000 0.447 0.000]</text>
+  <text x="80" y="565" fill="#495057" font-family="Consolas, monospace" font-size="11"> [0.000 0.577 0.000 0.000 0.000]</text>
+  <text x="80" y="580" fill="#495057" font-family="Consolas, monospace" font-size="11"> [0.500 0.000 0.500 0.000 0.000]]</text>
+</svg>

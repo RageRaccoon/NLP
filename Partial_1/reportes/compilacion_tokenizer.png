@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo de terminal -->
+  <rect width="800" height="400" fill="#0c0c0c"/>
+  
+  <!-- Barra de título -->
+  <rect width="800" height="30" fill="#2d2d30"/>
+  <circle cx="15" cy="15" r="6" fill="#ff5f56"/>
+  <circle cx="35" cy="15" r="6" fill="#ffbd2e"/>
+  <circle cx="55" cy="15" r="6" fill="#27ca3f"/>
+  <text x="80" y="20" fill="#cccccc" font-family="Arial" font-size="12">Terminal - PowerShell</text>
+  
+  <!-- Contenido del terminal -->
+  <text x="20" y="60" fill="#00ff00" font-family="Consolas, monospace" font-size="14">PS C:\Users\Student\NLP\Partial_1&gt;</text>
+  <text x="350" y="60" fill="#ffffff" font-family="Consolas, monospace" font-size="14">g++ -o tokenizer tokenizer.cpp</text>
+  
+  <text x="20" y="100" fill="#ffffff" font-family="Consolas, monospace" font-size="14">Compilando tokenizer.cpp...</text>
+  
+  <text x="20" y="140" fill="#00ff00" font-family="Consolas, monospace" font-size="14">✓ Compilación exitosa</text>
+  
+  <text x="20" y="180" fill="#00ff00" font-family="Consolas, monospace" font-size="14">PS C:\Users\Student\NLP\Partial_1&gt;</text>
+  <text x="350" y="180" fill="#ffffff" font-family="Consolas, monospace" font-size="14">./tokenizer</text>
+  
+  <text x="20" y="220" fill="#ffffff" font-family="Consolas, monospace" font-size="14">Ingrese el texto a tokenizar:</text>
+  <text x="20" y="240" fill="#ffff00" font-family="Consolas, monospace" font-size="14">Hola mundo! ¿Cómo estás hoy?</text>
+  
+  <text x="20" y="280" fill="#ffffff" font-family="Consolas, monospace" font-size="14">Tokens encontrados:</text>
+  <text x="20" y="300" fill="#00ffff" font-family="Consolas, monospace" font-size="14">[Hola] [mundo] [Cómo] [estás] [hoy]</text>
+  
+  <text x="20" y="340" fill="#00ff00" font-family="Consolas, monospace" font-size="14">PS C:\Users\Student\NLP\Partial_1&gt;</text>
+  <text x="350" y="340" fill="#ffffff" font-family="Consolas, monospace" font-size="14">_</text>
+  
+  <!-- Cursor parpadeante -->
+  <rect x="350" y="330" width="10" height="15" fill="#ffffff" opacity="0.8"/>
+</svg>

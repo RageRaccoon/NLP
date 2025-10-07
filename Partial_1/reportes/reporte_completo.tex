@@ -3,7 +3,7 @@
 \usepackage[spanish]{babel}
 \usepackage{geometry}
 \usepackage{graphicx}
-\usepackage{svg}
+% Paquete SVG removido - usando PNG en su lugar
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{fancyhdr}
@@ -17,15 +17,17 @@
 \usepackage{booktabs}
 \usepackage{array}
 
-% Configuración de página
+% Configuracion de pagina
 \geometry{margin=2.5cm}
+\setlength{\headheight}{15pt}
+\addtolength{\topmargin}{-2.5pt}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{Procesamiento de Lenguaje Natural}
-\fancyhead[R]{Primer Parcial - Prácticas}
+\fancyhead[R]{Primer Parcial - Practicas}
 \fancyfoot[C]{\thepage}
 
-% Configuración de código
+% Configuracion de codigo
 \lstset{
     language=Python,
     basicstyle=\ttfamily\footnotesize,
@@ -43,7 +45,7 @@
     captionpos=b
 }
 
-% Configuración para C++
+% Configuracion para C++
 \lstdefinestyle{cpp}{
     language=C++,
     basicstyle=\ttfamily\footnotesize,
@@ -70,20 +72,22 @@
     {\huge\bfseries Instituto Politécnico Nacional}\\[0.5cm]
     {\Large Escuela Superior de Cómputo}\\[1.5cm]
     
-    \includesvg[width=0.3\textwidth]{ipn_logo.svg}\\[1cm]
+    % \includegraphics[width=0.3\textwidth]{ipn_logo.png}\\[1cm]
+    {\Large INSTITUTO POLITÉCNICO NACIONAL}\\[1cm]
     
     {\huge\bfseries Procesamiento de Lenguaje Natural}\\[0.5cm]
     {\Large Primer Parcial - Prácticas}\\[2cm]
     
     {\Large\bfseries Reporte de Prácticas}\\[0.5cm]
-    {\large Tokenización, Preprocesamiento y TF-IDF}\\[2cm]
+    {\large Tokenizacion, Preprocesamiento y TF-IDF}\\[2cm]
     
     \begin{minipage}{0.4\textwidth}
         \begin{flushleft}
             \textbf{Alumnos:}\\
-            Sánchez García Miguel Alexander\\[0.5cm]
-            Villagran Salazar Diego\\[0.5cm]
-            \textbf{Grupo:} 6AV1\\
+            Rosas Sandoval Gustavo Issac\\[0.3cm]
+            De La Cruz Carmona Fernando Daniel\\[0.3cm]
+            Mendez Carranza Edmundo Ramon\\[0.5cm]
+\textbf{Grupo:} 6AV1\\
             \textbf{Carrera:} Licenciatura en Ciencia de Datos
         \end{flushleft}
     \end{minipage}
@@ -110,37 +114,39 @@
 El Procesamiento de Lenguaje Natural (PLN) es una rama de la inteligencia artificial que se enfoca en la interacción entre las computadoras y el lenguaje humano. En este reporte se presentan tres prácticas fundamentales que constituyen la base del procesamiento de texto:
 
 \begin{enumerate}
-    \item \textbf{Tokenización}: Proceso de dividir un texto en unidades más pequeñas llamadas tokens.
-    \item \textbf{Preprocesamiento}: Limpieza y normalización del texto mediante la eliminación de stopwords y conversión a minúsculas.
-    \item \textbf{TF-IDF}: Cálculo de la importancia de términos en una colección de documentos.
+    \item \textbf{Tokenizacion}: Proceso de dividir un texto en unidades mas pequenas llamadas tokens.
+    \item \textbf{Preprocesamiento}: Limpieza y normalizacion del texto mediante la eliminacion de stopwords y conversion a minusculas.
+    \item \textbf{TF-IDF}: Calculo de la importancia de terminos en una coleccion de documentos.
 \end{enumerate}
 
-Estas técnicas son esenciales para cualquier sistema de PLN y forman la base para tareas más complejas como análisis de sentimientos, clasificación de texto y recuperación de información.
+Estas tecnicas son esenciales para cualquier sistema de PLN y forman la base para tareas mas complejas como analisis de sentimientos, clasificacion de texto y recuperacion de informacion.
 
 \newpage
 
-% Práctica 1: Tokenización
-\section{Práctica 1: Tokenización}
+% Practica 1: Tokenizacion
+\section{Practica 1: Tokenizacion}
 
-\subsection{Introducción}
+\subsection{Introduccion}
 
-La tokenización es el proceso fundamental de dividir un texto en unidades más pequeñas llamadas tokens. Estos tokens pueden ser palabras, números, símbolos o cualquier secuencia de caracteres que tenga significado en el contexto del análisis. En esta práctica se implementa un tokenizador que:
+La tokenizacion es el proceso fundamental de dividir un texto en unidades mas pequenas llamadas tokens. Estos tokens pueden ser palabras, numeros, simbolos o cualquier secuencia de caracteres que tenga significado en el contexto del analisis. En esta practica se implementa un tokenizador que:
 
 \begin{itemize}
     \item Separa palabras usando delimitadores predefinidos
-    \item Filtra números puros de palabras alfanuméricas
-    \item Mantiene solo caracteres alfabéticos en palabras mixtas
-    \item Preserva números completos cuando aparecen solos
+    \item Filtra numeros puros de palabras alfanumericas
+    \item Mantiene solo caracteres alfabeticos en palabras mixtas
+    \item Preserva numeros completos cuando aparecen solos
 \end{itemize}
 
 \subsection{Diagrama de Flujo}
 
-\begin{figure}[H]
-    \centering
-    \includesvg[width=0.8\textwidth]{diagrama_tokenizacion.svg}
-    \caption{Diagrama de flujo del proceso de tokenización}
-    \label{fig:diagrama_tokenizacion}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{diagrama_tokenizacion.png}
+%     \caption{Diagrama de flujo del proceso de tokenización}
+%     \label{fig:diagrama_tokenizacion}
+% \end{figure}
+
+\textbf{Nota:} Diagrama de flujo del proceso de tokenización (imagen temporalmente deshabilitada)
 
 \subsection{Código Fuente}
 
@@ -303,48 +309,44 @@ public:
 \begin{figure}[H]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\textwidth]{tokenizacion_python.svg}
-        \caption{Ejecución en Python}
+        \includegraphics[width=\textwidth]{img/funcionamiento_1.png}
+        \caption{Funcionamiento del tokenizador en Python}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\textwidth]{tokenizacion_cpp.svg}
-        \caption{Ejecución en C++}
+        \includegraphics[width=\textwidth]{img/funcionamiento_1_1.jpeg}
+        \caption{Funcionamiento del tokenizador en C++}
     \end{subfigure}
-    \caption{Resultados de la tokenización}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includesvg[width=0.8\textwidth]{compilacion_tokenizer.svg}
-    \caption{Proceso de compilación del tokenizador en C++}
+    \caption{Capturas adicionales del funcionamiento del primer ejercicio}
 \end{figure}
 
 \newpage
 
-% Práctica 2: Preprocesamiento
-\section{Práctica 2: Preprocesamiento de Texto}
+% Practica 2: Preprocesamiento
+\section{Practica 2: Preprocesamiento de Texto}
 
-\subsection{Introducción}
+\subsection{Introduccion}
 
-El preprocesamiento de texto es una etapa crucial que mejora la calidad de los datos antes del análisis. En esta práctica se extiende el tokenizador básico para incluir:
+El preprocesamiento de texto es una etapa crucial que mejora la calidad de los datos antes del analisis. En esta practica se extiende el tokenizador basico para incluir:
 
 \begin{itemize}
-    \item \textbf{Conversión a minúsculas}: Normaliza el texto para evitar duplicados por diferencias de capitalización
-    \item \textbf{Eliminación de stopwords}: Remueve palabras comunes que no aportan significado semántico
-    \item \textbf{Filtrado de contenido}: Mantiene solo palabras relevantes para el análisis
+    \item \textbf{Conversion a minusculas}: Normaliza el texto para evitar duplicados por diferencias de capitalizacion
+    \item \textbf{Eliminacion de stopwords}: Remueve palabras comunes que no aportan significado semantico
+    \item \textbf{Filtrado de contenido}: Mantiene solo palabras relevantes para el analisis
 \end{itemize}
 
-Estas técnicas reducen el ruido en los datos y mejoran la eficiencia de algoritmos posteriores.
+Estas tecnicas reducen el ruido en los datos y mejoran la eficiencia de algoritmos posteriores.
 
 \subsection{Diagrama de Flujo}
 
-\begin{figure}[H]
-    \centering
-    \includesvg[width=0.9\textwidth]{diagrama_preprocesamiento.svg}
-    \caption{Diagrama de flujo del preprocesamiento de texto}
-    \label{fig:diagrama_preprocesamiento}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.9\textwidth]{diagrama_preprocesamiento.png}
+%     \caption{Diagrama de flujo del preprocesamiento de texto}
+%     \label{fig:diagrama_preprocesamiento}
+% \end{figure}
+
+\textbf{Nota:} Diagrama de flujo del preprocesamiento de texto (imagen temporalmente deshabilitada)
 
 \subsection{Código Fuente}
 
@@ -423,41 +425,45 @@ class Tokenizer:
 
 \subsection{Capturas del Funcionamiento}
 
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\textwidth]{preprocesamiento_antes.svg}
-        \caption{Texto original}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\textwidth]{preprocesamiento_despues.svg}
-        \caption{Texto procesado}
-    \end{subfigure}
-    \caption{Comparación antes y después del preprocesamiento}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \begin{subfigure}{0.45\textwidth}
+%         \includegraphics[width=\textwidth]{preprocesamiento_antes.png}
+%         \caption{Texto original}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}{0.45\textwidth}
+%         \includegraphics[width=\textwidth]{preprocesamiento_despues.png}
+%         \caption{Texto procesado}
+%     \end{subfigure}
+%     \caption{Comparación antes y después del preprocesamiento}
+% \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includesvg[width=0.8\textwidth]{ejecucion_preprocesamiento.svg}
-    \caption{Ejecución del preprocesamiento en Jupyter Notebook}
-\end{figure}
+\textbf{Nota:} Comparación antes y después del preprocesamiento (imágenes temporalmente deshabilitadas)
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{ejecucion_preprocesamiento.png}
+%     \caption{Ejecución del preprocesamiento en Jupyter Notebook}
+% \end{figure}
+
+\textbf{Nota:} Ejecución del preprocesamiento en Jupyter Notebook (imagen temporalmente deshabilitada)
 
 \newpage
 
-% Práctica 3: TF-IDF
-\section{Práctica 3: Matriz TF-IDF}
+% Practica 3: TF-IDF
+\section{Practica 3: Matriz TF-IDF}
 
-\subsection{Introducción}
+\subsection{Introduccion}
 
-TF-IDF (Term Frequency-Inverse Document Frequency) es una técnica de ponderación de términos que evalúa la importancia de una palabra en un documento dentro de una colección de documentos. La medida combina:
+TF-IDF (Term Frequency-Inverse Document Frequency) es una tecnica de ponderacion de terminos que evalua la importancia de una palabra en un documento dentro de una coleccion de documentos. La medida combina:
 
 \begin{itemize}
-    \item \textbf{TF (Term Frequency)}: Frecuencia de un término en un documento específico
-    \item \textbf{IDF (Inverse Document Frequency)}: Inverso de la frecuencia del término en toda la colección
+    \item \textbf{TF (Term Frequency)}: Frecuencia de un termino en un documento especifico
+    \item \textbf{IDF (Inverse Document Frequency)}: Inverso de la frecuencia del termino en toda la coleccion
 \end{itemize}
 
-La fórmula utilizada es:
+La formula utilizada es:
 \begin{equation}
 TF\text{-}IDF(t,d) = TF(t,d) \times IDF(t)
 \end{equation}
@@ -469,12 +475,14 @@ IDF(t) = \log\left(\frac{N}{1 + df(t)}\right)
 
 \subsection{Diagrama de Flujo}
 
-\begin{figure}[H]
-    \centering
-    \includesvg[width=0.9\textwidth]{diagrama_tfidf.svg}
-    \caption{Diagrama de flujo del cálculo de TF-IDF}
-    \label{fig:diagrama_tfidf}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.9\textwidth]{diagrama_tfidf.png}
+%     \caption{Diagrama de flujo del cálculo de TF-IDF}
+%     \label{fig:diagrama_tfidf}
+% \end{figure}
+
+\textbf{Nota:} Diagrama de flujo del calculo de TF-IDF (imagen temporalmente deshabilitada)
 
 \subsection{Código Fuente}
 
@@ -561,71 +569,77 @@ Para esta práctica se utilizaron tres documentos sobre SpongeBob y su trabajo e
 
 \subsection{Capturas del Funcionamiento}
 
-\begin{figure}[H]
-    \centering
-    \includesvg[width=\textwidth]{matriz_tfidf.svg}
-    \caption{Matriz TF-IDF resultante}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{matriz_tfidf.png}
+%     \caption{Matriz TF-IDF resultante}
+% \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\textwidth]{vocabulario_tfidf.svg}
-        \caption{Vocabulario generado (300 términos)}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.45\textwidth}
-        \includesvg[width=\textwidth]{estadisticas_tfidf.svg}
-        \caption{Estadísticas de la matriz}
-    \end{subfigure}
-    \caption{Análisis del vocabulario y estadísticas TF-IDF}
-\end{figure}
+\textbf{Nota:} Matriz TF-IDF resultante (imagen temporalmente deshabilitada)
 
-\begin{figure}[H]
-    \centering
-    \includesvg[width=0.8\textwidth]{ejecucion_tfidf.svg}
-    \caption{Ejecución completa del algoritmo TF-IDF}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \begin{subfigure}{0.45\textwidth}
+%         \includegraphics[width=\textwidth]{vocabulario_tfidf.png}
+%         \caption{Vocabulario generado (300 términos)}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}{0.45\textwidth}
+%         \includegraphics[width=\textwidth]{estadisticas_tfidf.png}
+%         \caption{Estadísticas de la matriz}
+%     \end{subfigure}
+%     \caption{Análisis del vocabulario y estadísticas TF-IDF}
+% \end{figure}
+
+\textbf{Nota:} Análisis del vocabulario y estadísticas TF-IDF (imágenes temporalmente deshabilitadas)
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{ejecucion_tfidf.png}
+%     \caption{Ejecución completa del algoritmo TF-IDF}
+% \end{figure}
+
+\textbf{Nota:} Ejecución completa del algoritmo TF-IDF (imagen temporalmente deshabilitada)
 
 \newpage
 
-% Análisis de Resultados
-\section{Análisis de Resultados}
+% Analisis de Resultados
+\section{Analisis de Resultados}
 
-\subsection{Comparación de Rendimiento}
+\subsection{Comparacion de Rendimiento}
 
 \begin{table}[H]
     \centering
     \begin{tabular}{|l|c|c|c|}
         \hline
-        \textbf{Métrica} & \textbf{Tokenización} & \textbf{Preprocesamiento} & \textbf{TF-IDF} \\
+        \textbf{Metrica} & \textbf{Tokenizacion} & \textbf{Preprocesamiento} & \textbf{TF-IDF} \\
         \hline
-        Tiempo de ejecución & $< 1$ ms & $< 2$ ms & $\sim 50$ ms \\
+        Tiempo de ejecucion & $< 1$ ms & $< 2$ ms & $\sim 50$ ms \\
         Memoria utilizada & Baja & Baja & Media \\
         Complejidad & O(n) & O(n) & O(n×m) \\
         \hline
     \end{tabular}
-    \caption{Comparación de rendimiento entre las tres prácticas}
+    \caption{Comparacion de rendimiento entre las tres practicas}
 \end{table}
 
 \subsection{Efectividad del Preprocesamiento}
 
-El preprocesamiento demostró ser efectivo al:
+El preprocesamiento demostro ser efectivo al:
 \begin{itemize}
     \item Reducir el vocabulario en aproximadamente 15\%
-    \item Normalizar variaciones de capitalización
-    \item Eliminar palabras sin valor semántico
+    \item Normalizar variaciones de capitalizacion
+    \item Eliminar palabras sin valor semantico
     \item Mejorar la calidad de la matriz TF-IDF
 \end{itemize}
 
 \subsection{Calidad de la Matriz TF-IDF}
 
-La matriz TF-IDF generada mostró:
+La matriz TF-IDF generada mostro:
 \begin{itemize}
-    \item Vocabulario de 300 términos únicos
-    \item Distribución adecuada de pesos
-    \item Identificación correcta de términos distintivos por documento
-    \item Valores coherentes con la teoría TF-IDF
+    \item Vocabulario de 300 terminos unicos
+    \item Distribucion adecuada de pesos
+    \item Identificacion correcta de terminos distintivos por documento
+    \item Valores coherentes con la teoria TF-IDF
 \end{itemize}
 
 \newpage
@@ -636,69 +650,69 @@ La matriz TF-IDF generada mostró:
 \subsection{Logros Obtenidos}
 
 \begin{enumerate}
-    \item \textbf{Implementación exitosa}: Se desarrollaron tres algoritmos fundamentales de PLN con implementaciones eficientes en Python y C++.
+    \item \textbf{Implementacion exitosa}: Se desarrollaron tres algoritmos fundamentales de PLN con implementaciones eficientes en Python y C++.
     
-    \item \textbf{Comprensión teórica}: Se adquirió un entendimiento profundo de los conceptos de tokenización, preprocesamiento y TF-IDF.
+    \item \textbf{Comprension teorica}: Se adquirio un entendimiento profundo de los conceptos de tokenizacion, preprocesamiento y TF-IDF.
     
-    \item \textbf{Aplicación práctica}: Los algoritmos fueron probados con datos reales y mostraron resultados coherentes.
+    \item \textbf{Aplicacion practica}: Los algoritmos fueron probados con datos reales y mostraron resultados coherentes.
     
-    \item \textbf{Optimización}: Se implementaron mejoras de rendimiento y manejo eficiente de memoria.
+    \item \textbf{Optimizacion}: Se implementaron mejoras de rendimiento y manejo eficiente de memoria.
 \end{enumerate}
 
 \subsection{Lecciones Aprendidas}
 
 \begin{itemize}
-    \item La tokenización es la base fundamental de cualquier sistema de PLN
+    \item La tokenizacion es la base fundamental de cualquier sistema de PLN
     \item El preprocesamiento mejora significativamente la calidad de los resultados
-    \item TF-IDF es una técnica poderosa para identificar términos relevantes
-    \item La implementación eficiente es crucial para el procesamiento de grandes volúmenes de texto
+    \item TF-IDF es una tecnica poderosa para identificar terminos relevantes
+    \item La implementacion eficiente es crucial para el procesamiento de grandes volumenes de texto
 \end{itemize}
 
 \subsection{Trabajo Futuro}
 
 \begin{enumerate}
-    \item Implementar técnicas avanzadas de tokenización (subword tokenization)
-    \item Expandir la lista de stopwords para español
+    \item Implementar tecnicas avanzadas de tokenizacion (subword tokenization)
+    \item Expandir la lista de stopwords para espanol
     \item Explorar variantes de TF-IDF (TF-IDF normalizado, BM25)
-    \item Desarrollar interfaces gráficas para las herramientas
+    \item Desarrollar interfaces graficas para las herramientas
     \item Optimizar para procesamiento paralelo
 \end{enumerate}
 
 \newpage
 
-% Comandos de Compilación y Ejecución
-\section{Comandos de Compilación y Ejecución}
+% Comandos de Compilacion y Ejecucion
+\section{Comandos de Compilacion y Ejecucion}
 
 \subsection{Para C++}
 
-\begin{lstlisting}[language=bash, caption=Compilación y ejecución del tokenizador en C++]
-# Compilación
+\begin{lstlisting}[language=bash, caption=Compilacion y ejecucion del tokenizador en C++]
+# Compilacion
 g++ -o tokenizer tokenizer.cpp -std=c++11
 
-# Ejecución
+# Ejecucion
 ./tokenizer
 
-# Con optimización
+# Con optimizacion
 g++ -O2 -o tokenizer tokenizer.cpp -std=c++11
 \end{lstlisting}
 
 \subsection{Para Python}
 
-\begin{lstlisting}[language=bash, caption=Ejecución de los notebooks de Python]
+\begin{lstlisting}[language=bash, caption=Ejecucion de los notebooks de Python]
 # Iniciar Jupyter Notebook
 jupyter notebook
 
 # Ejecutar directamente
 python tokenizer.py
 
-# Con medición de tiempo
+# Con medicion de tiempo
 time python tokenizer.py
 \end{lstlisting}
 
 \newpage
 
-% Bibliografía
-\section{Bibliografía}
+% Bibliografia
+\section{Bibliografia}
 
 \begin{thebibliography}{9}
 

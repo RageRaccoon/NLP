@@ -12,10 +12,10 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{float}
-\usepackage{hyperref}
 \usepackage{subcaption}
 \usepackage{booktabs}
 \usepackage{array}
+\usepackage[hidelinks]{hyperref}
 
 % Configuracion de pagina
 \geometry{margin=2.5cm}
@@ -84,9 +84,11 @@
     \begin{minipage}{0.4\textwidth}
         \begin{flushleft}
             \textbf{Alumnos:}\\
-            Rosas Sandoval Gustavo Issac\\[0.3cm]
             De La Cruz Carmona Fernando Daniel\\[0.3cm]
-            Mendez Carranza Edmundo Ramon\\[0.5cm]
+            Mendez Carranza Edmundo Ramon\\[0.3cm]
+            Rosas Sandoval Gustavo Issac\\[0.3cm]
+            Sanchez Garcia Miguel Alexander\\[0.3cm]
+            Villagran Salazar Diego\\[0.5cm]
 \textbf{Grupo:} 6AV1\\
             \textbf{Carrera:} Licenciatura en Ciencia de Datos
         \end{flushleft}
@@ -95,7 +97,7 @@
     \begin{minipage}{0.4\textwidth}
         \begin{flushright}
             \textbf{Profesor:}\\
-            Marco Antonio\\[0.5cm]
+            Ortiz Castillo Marco Antonio\\[0.5cm]
             \textbf{Fecha:}\\
             30 de Septiembre, 2024
         \end{flushright}
@@ -139,14 +141,12 @@ La tokenizacion es el proceso fundamental de dividir un texto en unidades mas pe
 
 \subsection{Diagrama de Flujo}
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.8\textwidth]{diagrama_tokenizacion.png}
-%     \caption{Diagrama de flujo del proceso de tokenización}
-%     \label{fig:diagrama_tokenizacion}
-% \end{figure}
-
-\textbf{Nota:} Diagrama de flujo del proceso de tokenización (imagen temporalmente deshabilitada)
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/diagrama1.jpg}
+    \caption{Diagrama de flujo del proceso de tokenización}
+    \label{fig:diagrama_tokenizacion}
+\end{figure}
 
 \subsection{Código Fuente}
 
@@ -323,7 +323,7 @@ public:
 \newpage
 
 % Practica 2: Preprocesamiento
-\section{Practica 2: Preprocesamiento de Texto}
+\section{Practica 2: Preprocesamiento de Texto, Lectura de PDF y One Hot Encoding}
 
 \subsection{Introduccion}
 
@@ -333,33 +333,36 @@ El preprocesamiento de texto es una etapa crucial que mejora la calidad de los d
     \item \textbf{Conversion a minusculas}: Normaliza el texto para evitar duplicados por diferencias de capitalizacion
     \item \textbf{Eliminacion de stopwords}: Remueve palabras comunes que no aportan significado semantico
     \item \textbf{Filtrado de contenido}: Mantiene solo palabras relevantes para el analisis
+    \item \textbf{Lectura de archivos PDF}: Extraccion de texto desde documentos PDF
+    \item \textbf{One Hot Encoding}: Creacion de matrices de representacion binaria del vocabulario
 \end{itemize}
 
 Estas tecnicas reducen el ruido en los datos y mejoran la eficiencia de algoritmos posteriores.
 
 \subsection{Diagrama de Flujo}
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.9\textwidth]{diagrama_preprocesamiento.png}
-%     \caption{Diagrama de flujo del preprocesamiento de texto}
-%     \label{fig:diagrama_preprocesamiento}
-% \end{figure}
-
-\textbf{Nota:} Diagrama de flujo del preprocesamiento de texto (imagen temporalmente deshabilitada)
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/diagrama2.png}
+    \caption{Diagrama de flujo del preprocesamiento de texto}
+    \label{fig:diagrama_preprocesamiento}
+\end{figure}
 
 \subsection{Código Fuente}
-
 \begin{lstlisting}[caption=Tokenizer con preprocesamiento]
+import time
+import tracemalloc
+
 class Tokenizer:
     """ Class for tokenizing text """
     delimiter = ""
     
     """ Constructor """
     def __init__(self):
-        self.delimiter = " \t\n\r\f\v" + "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}"
+        self.delimiter = " \t\n\r\f\v" + "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 
     """ Methods """
+    # Verifies if the word is only numbers or alphanumeric
     def verify_word(self, text:str) -> str:
         numbers = "0123456789"
         is_only_number = True
@@ -372,8 +375,9 @@ class Tokenizer:
         if is_only_number:
             word = text
         else:
+            # Keep alphabetic characters, remove only numbers from mixed words
             for char in text:
-                if char.isalpha():
+                if char.isalpha():  # Keep letters
                     word += char
         return word
     
@@ -387,7 +391,7 @@ class Tokenizer:
     
     # Delete stopwords from the token
     def remove_stopwords(self, token:list) -> list:
-        stopwords = ['the', 'of', 'in', 'on', 'a', 'an', 'some', 'and', 'that', 'this']
+        stopwords = ['the', 'of', 'in', 'on', 'a', 'an', 'some', 'and', 'that', 'this', 'mi', 'es', 'a', 'lo', 'la', 'el']
         return [word for word in token if word not in stopwords]
         
     def tokenize(self, text: str) -> list:              
@@ -405,11 +409,12 @@ class Tokenizer:
                 j += 1
             elif (text[i] in self.delimiter):
                 word_verified = self.verify_word(text[j:i])
-                if word_verified:
+                if word_verified:  # Only add non-empty words
                     token.append(word_verified)
                 j = i + 1
             i += 1
 
+        # Handle the last word if the text doesn't end with a delimiter
         if j < n:
             word_verified = self.verify_word(text[j:n])
             if word_verified:
@@ -423,31 +428,101 @@ class Tokenizer:
         return token
 \end{lstlisting}
 
+\subsection{Lectura de Archivo PDF y Aplicacion del Tokenizador}
+
+\subsubsection{Codigo para Lectura de PDF}
+
+\begin{lstlisting}[caption=Extracción de texto desde PDF]
+import fitz
+
+# Get the text from a PDF file
+doc = fitz.open("el principito.pdf")
+
+# Extract text from each page since third page
+text = "\n".join([page.get_text() for page in doc[2:]])  
+
+# Print the first 100 characters of the extracted text
+print(text[:100])
+\end{lstlisting}
+
+\subsubsection{Tokenizacion del Documento Extraido}
+
+\begin{lstlisting}[caption=Tokenización del texto extraído]
+tokenizer = Tokenizer()
+
+token_text = tokenizer.tokenize(text)
+print(len(token_text)) 
+print(token_text[:100])
+
+# Get the unique words from the tokenized text
+unique_words = set(token_text)
+print(len(unique_words))
+print(unique_words)
+\end{lstlisting}
+
+\subsection{One Hot Encoding}
+
+\subsubsection{Implementacion de la Clase OneHotEncoder}
+
+\begin{lstlisting}[caption=Clase OneHotEncoder]
+import pandas as pd
+
+class OneHotEncoder:
+    """ Class for One Hot Encoding """
+    def __init__(self):
+        pass
+    
+    def fit_transform(self, token:list) -> dict:
+        unique_words = set(token)
+        # Order the set alphabetically
+        unique_words = sorted(unique_words)
+        one_hot_df = pd.DataFrame(0, index=range(len(unique_words)), 
+                                   columns=list(unique_words))
+        for i, word in enumerate(unique_words):
+            one_hot_df.at[i, word] = 1
+        return one_hot_df
+\end{lstlisting}
+
+\subsubsection{Aplicacion del One Hot Encoding}
+
+\begin{lstlisting}[caption=Generación de la matriz One Hot]
+oh_encoder = OneHotEncoder()
+
+one_hot_token = oh_encoder.fit_transform(token_text)
+
+one_hot_token
+\end{lstlisting}
+
+\newpage
+
+\subsection{Descripcion del Proceso de One Hot Encoding}
+
+El proceso de One Hot Encoding transforma cada palabra unica del vocabulario en un vector binario donde:
+
+\begin{itemize}
+    \item Cada fila representa una palabra unica del vocabulario
+    \item Cada columna corresponde a una palabra del vocabulario ordenado alfabeticamente
+    \item El valor 1 aparece en la posicion correspondiente a la palabra
+    \item Todos los demas valores son 0
+\end{itemize}
+
+Esta representacion es util para algoritmos de machine learning que requieren entrada numerica, aunque puede ser ineficiente en terminos de memoria para vocabularios grandes.
+
 \subsection{Capturas del Funcionamiento}
 
-% \begin{figure}[H]
-%     \centering
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{preprocesamiento_antes.png}
-%         \caption{Texto original}
-%     \end{subfigure}
-%     \hfill
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{preprocesamiento_despues.png}
-%         \caption{Texto procesado}
-%     \end{subfigure}
-%     \caption{Comparación antes y después del preprocesamiento}
-% \end{figure}
-
-\textbf{Nota:} Comparación antes y después del preprocesamiento (imágenes temporalmente deshabilitadas)
-
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.8\textwidth]{ejecucion_preprocesamiento.png}
-%     \caption{Ejecución del preprocesamiento en Jupyter Notebook}
-% \end{figure}
-
-\textbf{Nota:} Ejecución del preprocesamiento en Jupyter Notebook (imagen temporalmente deshabilitada)
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/funcionamiento_2.png}
+        \caption{Funcionamiento del preprocesamiento}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/funcionamiento_2_1.png}
+        \caption{Resultado del preprocesamiento}
+    \end{subfigure}
+    \caption{Capturas del funcionamiento del segundo ejercicio}
+\end{figure}
 
 \newpage
 
@@ -475,14 +550,12 @@ IDF(t) = \log\left(\frac{N}{1 + df(t)}\right)
 
 \subsection{Diagrama de Flujo}
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.9\textwidth]{diagrama_tfidf.png}
-%     \caption{Diagrama de flujo del cálculo de TF-IDF}
-%     \label{fig:diagrama_tfidf}
-% \end{figure}
-
-\textbf{Nota:} Diagrama de flujo del calculo de TF-IDF (imagen temporalmente deshabilitada)
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/diagrama3.jpg}
+    \caption{Diagrama de flujo del cálculo de TF-IDF}
+    \label{fig:diagrama_tfidf}
+\end{figure}
 
 \subsection{Código Fuente}
 
@@ -569,145 +642,40 @@ Para esta práctica se utilizaron tres documentos sobre SpongeBob y su trabajo e
 
 \subsection{Capturas del Funcionamiento}
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=\textwidth]{matriz_tfidf.png}
-%     \caption{Matriz TF-IDF resultante}
-% \end{figure}
-
-\textbf{Nota:} Matriz TF-IDF resultante (imagen temporalmente deshabilitada)
-
-% \begin{figure}[H]
-%     \centering
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{vocabulario_tfidf.png}
-%         \caption{Vocabulario generado (300 términos)}
-%     \end{subfigure}
-%     \hfill
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{estadisticas_tfidf.png}
-%         \caption{Estadísticas de la matriz}
-%     \end{subfigure}
-%     \caption{Análisis del vocabulario y estadísticas TF-IDF}
-% \end{figure}
-
-\textbf{Nota:} Análisis del vocabulario y estadísticas TF-IDF (imágenes temporalmente deshabilitadas)
-
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.8\textwidth]{ejecucion_tfidf.png}
-%     \caption{Ejecución completa del algoritmo TF-IDF}
-% \end{figure}
-
-\textbf{Nota:} Ejecución completa del algoritmo TF-IDF (imagen temporalmente deshabilitada)
-
-\newpage
-
-% Analisis de Resultados
-\section{Analisis de Resultados}
-
-\subsection{Comparacion de Rendimiento}
-
-\begin{table}[H]
+\begin{figure}[H]
     \centering
-    \begin{tabular}{|l|c|c|c|}
-        \hline
-        \textbf{Metrica} & \textbf{Tokenizacion} & \textbf{Preprocesamiento} & \textbf{TF-IDF} \\
-        \hline
-        Tiempo de ejecucion & $< 1$ ms & $< 2$ ms & $\sim 50$ ms \\
-        Memoria utilizada & Baja & Baja & Media \\
-        Complejidad & O(n) & O(n) & O(n×m) \\
-        \hline
-    \end{tabular}
-    \caption{Comparacion de rendimiento entre las tres practicas}
-\end{table}
+    \includegraphics[width=\textwidth]{img/funcionamiento_3.png}
+    \caption{Matriz TF-IDF resultante}
+\end{figure}
 
-\subsection{Efectividad del Preprocesamiento}
-
-El preprocesamiento demostro ser efectivo al:
-\begin{itemize}
-    \item Reducir el vocabulario en aproximadamente 15\%
-    \item Normalizar variaciones de capitalizacion
-    \item Eliminar palabras sin valor semantico
-    \item Mejorar la calidad de la matriz TF-IDF
-\end{itemize}
-
-\subsection{Calidad de la Matriz TF-IDF}
-
-La matriz TF-IDF generada mostro:
-\begin{itemize}
-    \item Vocabulario de 300 terminos unicos
-    \item Distribucion adecuada de pesos
-    \item Identificacion correcta de terminos distintivos por documento
-    \item Valores coherentes con la teoria TF-IDF
-\end{itemize}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/funcionamiento_3_1.png}
+        \caption{Análisis de términos representativos}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/funcionamiento_3_12.png}
+        \caption{Términos más significativos}
+    \end{subfigure}
+    \caption{Capturas del funcionamiento del tercer ejercicio}
+\end{figure}
 
 \newpage
 
 % Conclusiones
 \section{Conclusiones}
 
-\subsection{Logros Obtenidos}
+A lo largo de este proyecto, hemos logrado desarrollar e implementar tres algoritmos fundamentales del Procesamiento de Lenguaje Natural, abarcando desde la tokenización básica hasta técnicas más avanzadas como el cálculo de TF-IDF. Este trabajo nos ha permitido comprender de manera profunda cómo funcionan las bases del análisis de texto y la importancia de cada etapa en el procesamiento de información lingüística.
 
-\begin{enumerate}
-    \item \textbf{Implementacion exitosa}: Se desarrollaron tres algoritmos fundamentales de PLN con implementaciones eficientes en Python y C++.
-    
-    \item \textbf{Comprension teorica}: Se adquirio un entendimiento profundo de los conceptos de tokenizacion, preprocesamiento y TF-IDF.
-    
-    \item \textbf{Aplicacion practica}: Los algoritmos fueron probados con datos reales y mostraron resultados coherentes.
-    
-    \item \textbf{Optimizacion}: Se implementaron mejoras de rendimiento y manejo eficiente de memoria.
-\end{enumerate}
+La implementación de estos algoritmos en Python y C++ nos ha dado la oportunidad de comparar diferentes enfoques de programación y observar cómo cada lenguaje ofrece ventajas particulares. Mientras que Python nos brindó una sintaxis clara y bibliotecas poderosas para el manejo de datos, C++ nos permitió explorar aspectos de optimización y eficiencia en el procesamiento. Ambas implementaciones fueron probadas con datos reales, lo que nos ayudó a validar la correctitud de nuestros algoritmos y a identificar áreas de mejora.
 
-\subsection{Lecciones Aprendidas}
+Durante el desarrollo, nos quedó claro que la tokenización es mucho más que simplemente dividir texto en palabras. Es el fundamento sobre el cual se construyen todas las demás operaciones de PLN, y su correcta implementación determina en gran medida la calidad de los resultados finales. El preprocesamiento, por su parte, demostró ser una etapa crucial para limpiar y normalizar el texto, eliminando ruido innecesario que podría afectar el análisis posterior. La conversión a minúsculas y la eliminación de stopwords redujeron significativamente el vocabulario sin perder información relevante, lo que mejoró tanto la eficiencia como la precisión de nuestros algoritmos.
 
-\begin{itemize}
-    \item La tokenizacion es la base fundamental de cualquier sistema de PLN
-    \item El preprocesamiento mejora significativamente la calidad de los resultados
-    \item TF-IDF es una tecnica poderosa para identificar terminos relevantes
-    \item La implementacion eficiente es crucial para el procesamiento de grandes volumenes de texto
-\end{itemize}
+El trabajo con TF-IDF nos reveló cómo es posible identificar automáticamente los términos más importantes dentro de una colección de documentos. Esta técnica nos permitió ver que no todas las palabras tienen el mismo peso informativo, y que aquellas que aparecen frecuentemente en un documento específico pero raramente en otros son las que realmente caracterizan y diferencian cada texto. Los resultados obtenidos con nuestros documentos de prueba sobre SpongeBob demostraron claramente cómo el algoritmo puede capturar los conceptos distintivos de cada documento.
 
-\subsection{Trabajo Futuro}
-
-\begin{enumerate}
-    \item Implementar tecnicas avanzadas de tokenizacion (subword tokenization)
-    \item Expandir la lista de stopwords para espanol
-    \item Explorar variantes de TF-IDF (TF-IDF normalizado, BM25)
-    \item Desarrollar interfaces graficas para las herramientas
-    \item Optimizar para procesamiento paralelo
-\end{enumerate}
-
-\newpage
-
-% Comandos de Compilacion y Ejecucion
-\section{Comandos de Compilacion y Ejecucion}
-
-\subsection{Para C++}
-
-\begin{lstlisting}[language=bash, caption=Compilacion y ejecucion del tokenizador en C++]
-# Compilacion
-g++ -o tokenizer tokenizer.cpp -std=c++11
-
-# Ejecucion
-./tokenizer
-
-# Con optimizacion
-g++ -O2 -o tokenizer tokenizer.cpp -std=c++11
-\end{lstlisting}
-
-\subsection{Para Python}
-
-\begin{lstlisting}[language=bash, caption=Ejecucion de los notebooks de Python]
-# Iniciar Jupyter Notebook
-jupyter notebook
-
-# Ejecutar directamente
-python tokenizer.py
-
-# Con medicion de tiempo
-time python tokenizer.py
-\end{lstlisting}
+Finalmente, este proyecto nos ha enseñado que la implementación eficiente no es solo una cuestión de elegir el algoritmo correcto, sino también de considerar aspectos como el manejo de memoria, la complejidad computacional y la escalabilidad. Estas prácticas nos han preparado mejor para enfrentar problemas más complejos de PLN en el futuro, proporcionándonos una base sólida tanto en los aspectos teóricos como en la implementación práctica de soluciones de procesamiento de lenguaje natural.
 
 \newpage
 

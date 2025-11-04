@@ -1,5 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1759816705.32994 "g:/Mi unidad/Escuela/6to/PLN/NLP/Partial_1/reportes/reporte_completo.tex" "reporte_completo.pdf" "reporte_completo" 1759816708.37251 0
+["pdflatex"] 1759840848.98017 "g:/Mi unidad/Escuela/6to/PLN/NLP/Partial_1/reportes/2022630093_2023630492_2023630531_2023630590_2023630839_PU1.tex" "2022630093_2023630492_2023630531_2023630590_2023630839_PU1.pdf" "2022630093_2023630492_2023630531_2023630590_2023630839_PU1" 1759840852.42755 0
+  "2022630093_2023630492_2023630531_2023630590_2023630839_PU1.aux" 1759840852 6867 1955fe155bbb7f9376997dfdec89729c "pdflatex"
+  "2022630093_2023630492_2023630531_2023630590_2023630839_PU1.out" 1759840852 5208 ca2b9bb4f3771106736100a2b3122ce4 "pdflatex"
+  "2022630093_2023630492_2023630531_2023630590_2023630839_PU1.tex" 1759840840 25155 2d83e8b00b80551a5b5bc679d312b6b7 ""
+  "2022630093_2023630492_2023630531_2023630590_2023630839_PU1.toc" 1759840852 2576 e57ee5a8dae5100c93710162dfa195d2 "pdflatex"
   "C:/Users/diego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1759784143 322554 779fd8a11699c8ce1047a754f3bb9d95 ""
   "C:/Users/diego/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1756250208 24225046 5b3d7678ebbb49bcb5db72ff5d620d60 ""
   "C:/Users/diego/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1001775420 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -115,7 +119,7 @@
   "C:/Users/diego/AppData/Local/Programs/MiKTeX/tex/latex/tools/array.sty" 1700599895 12667 e4b5eb11e4b7239e6c8a52bbe074a6c6 ""
   "C:/Users/diego/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/diego/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "g:/Mi unidad/Escuela/6to/PLN/NLP/Partial_1/reportes/reporte_completo.tex" 1759816701 22444 b3e61c093c471470f634db8a9ae069c4 ""
+  "g:/Mi unidad/Escuela/6to/PLN/NLP/Partial_1/reportes/2022630093_2023630492_2023630531_2023630590_2023630839_PU1.tex" 1759840840 25155 2d83e8b00b80551a5b5bc679d312b6b7 ""
   "img/diagrama1.jpg" 1759799398 503280 58c2331171ada575083eeb6ac29a096d ""
   "img/diagrama2.png" 1759815500 926305 111f6375ce60d96a6ce3668d5ec8c861 ""
   "img/diagrama3.jpg" 1759815617 649020 f4b22302ddff28adeaf4d02accc51fe6 ""
@@ -126,14 +130,10 @@
   "img/funcionamiento_3.png" 1759815928 71102 f1456047359b092364a1d9ce549a3638 ""
   "img/funcionamiento_3_1.png" 1759815946 136504 245764c46198f1e1de9709ad950dc46f ""
   "img/funcionamiento_3_12.png" 1759815962 91095 f8ffdac57dbb1fc716e0fa4d15dbc52c ""
-  "reporte_completo.aux" 1759816707 5203 406a0005ed029f6649bdade72ac56fa4 "pdflatex"
-  "reporte_completo.out" 1759816707 3266 abcfc8ad565233d928573c80ad7af850 "pdflatex"
-  "reporte_completo.tex" 1759816701 22444 b3e61c093c471470f634db8a9ae069c4 ""
-  "reporte_completo.toc" 1759816708 1792 7853525e5488d99005dc41fe5fc4e690 "pdflatex"
   (generated)
-  "reporte_completo.aux"
-  "reporte_completo.log"
-  "reporte_completo.out"
-  "reporte_completo.pdf"
-  "reporte_completo.toc"
+  "2022630093_2023630492_2023630531_2023630590_2023630839_PU1.aux"
+  "2022630093_2023630492_2023630531_2023630590_2023630839_PU1.log"
+  "2022630093_2023630492_2023630531_2023630590_2023630839_PU1.out"
+  "2022630093_2023630492_2023630531_2023630590_2023630839_PU1.pdf"
+  "2022630093_2023630492_2023630531_2023630590_2023630839_PU1.toc"
   (rewritten before read)

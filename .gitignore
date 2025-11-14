@@ -1,1 +1,38 @@
+# Data directories
 Partial_2/Data/**
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# LaTeX auxiliary files
+*.aux
+*.fdb_latexmk
+*.fls
+*.toc
+*.log
+*.out
+*.synctex.gz
+*.bbl
+*.blg
+
+# Compiled executables
+tokenizer
+*.exe
+*.o
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db

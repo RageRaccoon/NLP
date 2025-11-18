@@ -1,0 +1,106 @@
+#Lemmatization and simple word classification based on Jaccard similarity
+
+from CoOccurrencePCA import CoOccurrencePCA
+
+# ===========================================
+#   A) PREPROCESSING AND LEMMATIZATION
+# ===========================================
+
+def preprocess_text(text):
+    """
+    Receives a long text (≥ 500 words) and returns its lemmas
+    using only the Tokenizer inherited in CoOccurrencePCA.
+    """
+    nlp = CoOccurrencePCA()
+    tokens = nlp.tokenize(text)
+    return tokens
+
+
+
+# ===========================================
+#   B) SIMPLE CLASSIFICATION WITHOUT LIBRARIES
+# ===========================================
+
+def jaccard_similarity(word1, word2):
+    """
+    Manual implementation of Jaccard similarity between sets
+    of characters. Does not use external libraries.
+    """
+    set1 = set(word1)
+    set2 = set(word2)
+
+    inter = len(set1.intersection(set2))
+    union = len(set1.union(set2))
+
+    if union == 0:
+        return 0.0
+    return inter / union
+
+
+def classify_word(user_word, topics):
+    """
+    Classifies the user's word by comparing similarity
+    with the 5 relevant words of each topic.
+
+    topics = {
+        "topic1": ["word1", "word2", ...],
+        "topic2": ["word1", "word2", ...]
+    }
+    """
+    best_results = {}
+
+    for topic, keywords in topics.items():
+        topic_score = 0
+
+        for key in keywords:
+            topic_score += jaccard_similarity(user_word, key)
+
+        # average similarity for the topic
+        topic_score /= len(keywords)
+        best_results[topic] = topic_score
+
+    # Choose the topic with the highest score
+    assigned_topic = max(best_results, key=best_results.get)
+
+    return assigned_topic, best_results
+
+
+
+# ===========================================
+#                USAGE EXAMPLE
+# ===========================================
+
+if __name__ == "__main__":
+
+    # ------------------------
+    # A) PREPROCESSING
+    # ------------------------
+    long_text = """PASTE YOUR 500-WORD SENTENCE HERE..."""
+    lemma_tokens = preprocess_text(long_text)
+
+    print("\n=== OBTAINED LEMMAS ===")
+    print(lemma_tokens)
+    print("\nTotal lemmas:", len(lemma_tokens))
+
+
+    # ------------------------
+    # B) CLASSIFICATION
+    # ------------------------
+    # Example of topics with ≥5 relevant words each
+    topics = {
+        "Technology": ["computer", "program", "code", "intelligence", "networks"],
+        "Medicine": ["health", "virus", "body", "treatment", "doctor"],
+        "Economy": ["money", "market", "bank", "price", "trade"],
+        "Education": ["school", "study", "class", "learn", "teacher"],
+        "Sports": ["athlete", "exercise", "run", "game", "team"]
+    }
+
+    print("\n=== WORD CLASSIFICATION ===")
+    word = input("Enter a word: ").strip().lower()
+
+    topic, scores = classify_word(word, topics)
+
+    print("\nThe word belongs to the topic:", topic)
+    print("\nScores by topic:")
+    for t, p in scores.items():
+        print(f"{t}: {p:.4f}")
